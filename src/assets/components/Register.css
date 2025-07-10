@@ -1,0 +1,14 @@
+
+
+.registration-section button {
+  width: 80%;
+}
+
+h2 {
+   width: 80%;
+  text-align: center;
+  margin-top: 0;
+  padding: 10px;
+  color: rgb(114, 11, 11);
+  border-radius: 5px;
+}
