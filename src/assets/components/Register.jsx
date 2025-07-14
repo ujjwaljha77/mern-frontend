@@ -1,24 +1,28 @@
 import "./Register.css";
 // import { useRef } from "react";
 import { useState } from "react";
+import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 export default function Register() {
   const [user, setUser] = useState({});
   const [error, setError] = useState();
+  const Navigate = useNavigate()
+  const API_URL = import.meta.env.VITE_API_URL
   const handleSubmit = async () => {
     try {
-      const url = "http://localhost:8080/api/users/register";
+      const url = `${API_URL}/api/users/register`;
       const result = await axios.post(url, user);
       setError("Data saved successfully");
+      Navigate("/login")
     } catch (err) {
       console.log(err);
       setError("Something went wrong");
     }
   };
   return (
-    <div>
-      <div>
-        <h2 style={{ backgroundColor: "grey" }}>Registration form</h2>
+    <div className="App-Register-Row">
+      <div style={{ backgroundColor: "white" }}>
+        <h2>Registration Form</h2>
         {error}
         <p>
           <input
@@ -51,6 +55,8 @@ export default function Register() {
         <p>
           <button onClick={handleSubmit}>Submit</button>
         </p>
+        <hr />
+      <Link to="/login">Already a member? Login Here...</Link>
       </div>
     </div>
   );
