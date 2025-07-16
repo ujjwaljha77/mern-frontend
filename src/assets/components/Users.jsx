@@ -225,6 +225,7 @@ export default function Users() {
           onClick={() => setPage(page + 1)}
         >
           Next
+          
         </button>
       </div>
     </div>
