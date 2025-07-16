@@ -7,7 +7,8 @@ export default function Register() {
   const [user, setUser] = useState({});
   const [error, setError] = useState();
   const Navigate = useNavigate()
-  const API_URL = import.meta.env.VITE_API_URL
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+  // const API_URL = import.meta.env.VITE_API_URL
   const handleSubmit = async () => {
     try {
       const url = `${API_URL}/api/users/register`;
@@ -18,10 +19,12 @@ export default function Register() {
       console.log(err);
       setError("Something went wrong");
     }
+    
+
   };
   return (
-    <div className="App-Register-Row">
-      <div style={{ backgroundColor: "white" }}>
+    <div >
+      <div>
         <h2>Registration Form</h2>
         {error}
         <p>
